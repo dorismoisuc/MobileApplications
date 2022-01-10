@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/TeamListFragment">
+
+    <fragment
+        android:id="@+id/FragmentLogin"
+        android:name="com.ilazar.myapp2.auth.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/TeamListFragment"
+        android:name="com.ilazar.myapp2.teamStore.teams.TeamListFragment"
+        android:label="@string/team_list_fragment_label"
+        tools:layout="@layout/fragment_team_list">
+
+        <action
+            android:id="@+id/action_TeamListFragment_to_TeamEditFragment"
+            app:destination="@id/TeamEditFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TeamEditFragment"
+        android:name="com.ilazar.myapp2.teamStore.team.TeamEditFragment"
+        android:label="@string/team_edit_fragment_label"
+        tools:layout="@layout/fragment_team_edit">
+
+        <action
+            android:id="@+id/action_TeamEditFragment_to_TeamListFragment"
+            app:destination="@id/TeamListFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+</navigation>
